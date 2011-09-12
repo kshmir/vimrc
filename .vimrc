@@ -3,11 +3,16 @@ set list
 set listchars=eol:¬
 set hidden
 set number
-set t_Co=256
-colorscheme railscasts
 
 " default indentation: 4 spaces
 set ts=4 sts=4 sw=4 expandtab
+
+let hostname = substitute(system('hostname'), '\n', '', '')
+
+if hostname !~ "labu"
+    set t_Co=256
+    colorscheme railscasts
+end
 
 if has("autocmd")
   filetype on
